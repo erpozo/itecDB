@@ -1,0 +1,54 @@
+En el instituto ITEC:
+
+Existen alumnos, cursan asignaturas, cada asignatura es impartida por un profesor
+
+Un profesor puede impartir varias asignaturas, una asignatura solo es impartida por un profesor
+
+Las asignaturas se reparten en cursos, los cliclos tienen uno o varios cursos
+
+alumnos
+    alumnos_ID
+	DNI
+    Nombre
+    Apellido1
+    Apellido2
+
+alumnosAsignatura
+    alumnos_ID
+    asignatura_ID
+
+asignatura
+    asignatura_ID
+    Nombre
+    profesor_ID
+
+asignaturaCiclo
+    asignatura_ID
+    cliclo_ID
+
+cliclo
+    cliclo_ID
+    Nombre
+    Titulación
+
+curso
+    curso_ID
+    Nombre
+    cliclo_ID
+
+profesor
+    profesor_ID
+    Nombre
+    Apellido1
+    Apellido2
+    DNI
+
+alumnoCliclo
+    alumnos_ID
+    cliclo_ID
+
+Calificación
+    Nota
+    alumnos_ID
+    profesor_ID
+    asignatura_ID
