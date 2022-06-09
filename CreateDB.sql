@@ -28,7 +28,7 @@ create table itec.titulacion (
 
 create table itec.ciclo (
     ciclo_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre CHAR(30) NOT NULL UNIQUE,
+    Nombre CHAR(50) NOT NULL UNIQUE,
     fk_titulacion_ID INT not null,
     FOREIGN KEY (fk_titulacion_ID) REFERENCES itec.titulacion (titulacion_ID)
 );
@@ -42,7 +42,7 @@ create table itec.curso (
 
 create table itec.asignatura (
 	asignatura_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre varchar(20) NOT NULL UNIQUE
+    Nombre varchar(50) NOT NULL UNIQUE
 );
 
 create table itec.calificacion (
