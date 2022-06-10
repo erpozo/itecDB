@@ -1,9 +1,9 @@
-drop database itec;
+/*drop database itec;*/
 
 create database itec;
 
-create table itec.alumnos (
-	alumnos_ID INT AUTO_INCREMENT PRIMARY KEY,
+create table itec.alumno (
+	alumno_ID INT AUTO_INCREMENT PRIMARY KEY,
     DNI CHAR(9) NOT NULL UNIQUE,
     Nombre varchar(20) NOT NULL,
     Apellido1 varchar(20),
@@ -47,20 +47,18 @@ create table itec.asignatura (
 
 create table itec.calificacion (
     calificacion_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Nota int check (Nota <=0 and Nota >= 10) not null,
-    fk_alumnos_ID INT not null,
-    FOREIGN KEY (fk_alumnos_ID) REFERENCES itec.alumnos (alumnos_ID),
+    Nota int check (0 < Nota and Nota < 10) not null,
+    fk_alumno_ID INT not null,
+    FOREIGN KEY (fk_alumno_ID) REFERENCES itec.alumno (alumno_ID),
     fk_asignatura_ID INT not null,
-    FOREIGN KEY (fk_asignatura_ID) REFERENCES itec.asignatura (asignatura_ID),
-    fk_profesor_ID INT,
-    FOREIGN KEY (fk_profesor_ID) REFERENCES itec.profesor (profesor_ID)
+    FOREIGN KEY (fk_asignatura_ID) REFERENCES itec.asignatura (asignatura_ID)
 );
 
-create table itec.alumno_curso (
-    fk_alumnos_ID INT not null,
-    FOREIGN KEY (fk_alumnos_ID) REFERENCES itec.alumnos (alumnos_ID),
-    fk_curso_ID INT not null,
-    FOREIGN KEY (fk_curso_ID) REFERENCES itec.curso (curso_ID)
+create table itec.alumno_asignatura (
+    fk_alumno_ID INT not null,
+    FOREIGN KEY (fk_alumno_ID) REFERENCES itec.alumno (alumno_ID),
+    fk_asignatura_ID INT not null,
+    FOREIGN KEY (fk_asignatura_ID) REFERENCES itec.asignatura (asignatura_ID)
 );
 
 create table itec.asignatura_curso (
